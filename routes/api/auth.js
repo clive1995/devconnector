@@ -11,8 +11,8 @@ const bcrypt = require("bcryptjs");
 //@access Public
 router.get("/", auth, async (req, res) => {
   try {
-    const user = await User.findOne(req.user.id).select("-password");
-    res.json(user);
+    const user = await User.findOne({ _id: req.user.id }).select("-password");
+    res.send(user);
   } catch (error) {
     res.status(500).send("internel server seeor");
   }

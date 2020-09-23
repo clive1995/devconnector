@@ -126,7 +126,6 @@ router.get("/user/:userId", auth, async (req, res) => {
 router.delete("/", auth, async (req, res) => {
   try {
     await Profile.findOneAndRemove({ user: req.user.id });
-    await user.findOneAndRemove({ _id: req.user.id });
     res.send({ msg: "User deleted." });
   } catch (error) {
     console.log(error);
@@ -201,7 +200,7 @@ router.delete("/experience/:experienceId", auth, async (req, res) => {
   }
 });
 
-//@route put/api/profile/education
+//@route put /api/profile/education
 //@desc add profile education
 //@access Privete
 router.put(
@@ -214,6 +213,7 @@ router.put(
     check("from", "from date is required").not().isEmpty(),
   ],
   async (req, res) => {
+    console.log(req.body);
     const errors = validationResult(req);
     if (!errors.isEmpty())
       return res.status(400).send({ errors: errors.array() });

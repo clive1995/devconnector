@@ -30,7 +30,8 @@ const profile = (state = INNITIAL_STATE, action) => {
     case "CLEAR_PROFILE":
       return {
         ...state,
-        profile: null,
+        //profile: null,
+        profiles: null,
         repos: [],
         loading: false,
       };

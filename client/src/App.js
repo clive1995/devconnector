@@ -12,6 +12,10 @@ import EditProfile from "./components/profile-form/EditProfile";
 import AddExperience from "./components/profile-form/AddExperience";
 import AddEducation from "./components/profile-form/AddEducation";
 import Profiles from "./components/profiles/Profiles";
+import Profile from "./components/profile/Profile";
+import Posts from "./components/post/Posts";
+import Post from "./components/post/Post";
+
 import { Route, Switch } from "react-router-dom";
 
 import { BrowserRouter } from "react-router-dom";
@@ -57,7 +61,11 @@ function App() {
               path="/add-education"
               component={AddEducation}
             />
+
+            <PrivateRoute exact path="/posts" component={Posts} />
+            <PrivateRoute exact path="/posts/:id" component={Post} />
             <Route exact path="/profiles" component={Profiles} />
+            <Route exact path="/Profile/:id" component={Profile} />
           </Switch>
         </section>
       </BrowserRouter>

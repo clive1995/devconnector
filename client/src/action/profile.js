@@ -34,7 +34,7 @@ export const createProfile = (formdata, history, edit = false) => async (
     const response = await axios.post("/api/profile", formdata, config);
     dispatch({
       type: "GET_PROFILE",
-      paylaod: response.data,
+      payload: response.data,
     });
     setAlert(
       edit
@@ -71,7 +71,7 @@ export const addExperience = (formdata, history) => async (dispatch) => {
     );
     dispatch({
       type: "UPDATE_PROFILE",
-      paylaod: response.data,
+      payload: response.data,
     });
 
     setAlert("Experience added Successfully", "success", 2000);
@@ -101,7 +101,7 @@ export const addEducation = (formdata, history) => async (dispatch) => {
     );
     dispatch({
       type: "UPDATE_PROFILE",
-      paylaod: response.data,
+      payload: response.data,
     });
 
     setAlert("Education added Successfully", "success", 2000);
@@ -163,21 +163,24 @@ export const getAllProfiles = () => async (dispatch) => {
   dispatch({ type: "CLEAR_PROFILE" });
   try {
     const response = await axios.get("/api/profile");
+    console.log(response.data);
     dispatch({
       type: "GET_PROFILES",
-      paylaod: response.data,
+      payload: response.data,
     });
   } catch (err) {
     dispatch(setAlert("Failed to fetch profile", "danger", 2000));
   }
 };
 
-export const getAllProfilesById = (userId) => async (dispatch) => {
+export const getProfileById = (userId) => async (dispatch) => {
+  dispatch({ type: "CLEAR_PROFILE" });
   try {
     const response = await axios.get("/api/profile/user/" + userId);
+    console.log([response.data]);
     dispatch({
       type: "GET_PROFILES",
-      paylaod: response.data,
+      payload: response.data,
     });
   } catch (err) {
     dispatch(setAlert("Failed to fetch profile", "danger", 2000));
@@ -192,9 +195,10 @@ export const getGitHubRepos = (username) => async (dispatch) => {
       },
     };
     const response = await axios.get("/api/profile/github/" + username);
+    console.log(response);
     dispatch({
       type: "GET_REPOS",
-      paylaod: response.data,
+      payload: response.data,
     });
   } catch (err) {
     dispatch(setAlert("Failed to fetch profile", "danger", 2000));

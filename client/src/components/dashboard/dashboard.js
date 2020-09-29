@@ -22,7 +22,7 @@ const Dashboard = ({
       <p className="lead">
         <i className="fas fa-user"></i> Welcome {user ? user.name : null}
       </p>
-      {profile != null ? (
+      {profile !== null ? (
         <DashboardAction profile={profile} />
       ) : (
         <div>

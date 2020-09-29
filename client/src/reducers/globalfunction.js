@@ -23,7 +23,7 @@ export const deleteEducationFromState = (state, deleteId) => {
     }
   }
   state.profile.education = temp;
-  return state.profile;
+  return { ...state.profile };
 };
 
 export const deleteExperienceFromState = (state, deleteId) => {
@@ -34,5 +34,6 @@ export const deleteExperienceFromState = (state, deleteId) => {
     }
   }
   state.profile.experience = temp;
-  return state.profile;
+  console.log(state.profile.experience);
+  return { ...state.profile };
 };

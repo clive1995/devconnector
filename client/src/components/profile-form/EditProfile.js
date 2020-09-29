@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { createProfile, getCurrentProfile } from "../../action/profile";
 import { connect } from "react-redux";
-import { Link, withRouter } from "react-router-dom";
 
 const EditProfile = ({
   profile: { profile, loading },
@@ -39,7 +38,6 @@ const EditProfile = ({
     linkedin,
   } = formdata;
   useEffect(() => {
-    console.log("yea m here");
     getCurrentProfile();
     setFormData({
       company: loading || !profile.company ? "" : profile.company,
@@ -59,8 +57,7 @@ const EditProfile = ({
       linkedin:
         loading || !profile.social.linkedin ? "" : profile.social.linkedin,
     });
-    console.log(formdata);
-  }, [loading]);
+  }, [getCurrentProfile]);
   const onChange = (e) => {
     setFormData({ ...formdata, [e.target.name]: e.target.value });
   };

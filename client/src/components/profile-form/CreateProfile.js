@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { createProfile } from "../../action/profile";
 import { connect } from "react-redux";
-import { Link, withRouter } from "react-router-dom";
 
 const CreateProfile = ({ createProfile, history }) => {
   const [formdata, setFormData] = useState({

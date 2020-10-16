@@ -4,7 +4,6 @@ import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 const Landing = ({ history, auth }) => {
   const { isAuthenticated } = auth;
-  console.log(auth);
   if (isAuthenticated) {
     return <Redirect to="/dashboard" />;
   }

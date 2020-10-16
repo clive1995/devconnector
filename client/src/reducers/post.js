@@ -17,7 +17,7 @@ const Post = (state = INNITIAL_STATE, action) => {
     case "GET_POST":
       return {
         ...state,
-        posts: payload,
+        post: payload,
         loading: false,
       };
     case "ADD_POSTS":

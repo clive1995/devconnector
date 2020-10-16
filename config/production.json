@@ -1,0 +1,7 @@
+{
+    "mongoURI": "mongodb+srv://cristalmeida123:cristalmeida123@devconnector.v4fyt.mongodb.net/<dbname>?retryWrites=true&w=majority",
+    "jwtSecrete": "mySecreteToken",
+    "githubClientId": "4c82715f589d470d0187",
+    "githubSecrete": "2df52d2e08fcef953b7715730f64b3ea9babbb90"
+  }
+  
